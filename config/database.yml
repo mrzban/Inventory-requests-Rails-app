@@ -27,10 +27,5 @@ test:
 production:
   <<: *default
   database: bs4clean_production
-  username: rootrails
-  password: 111
-
-<<: *default
-  database: bs4clean_production
   username: bs4clean
   password: <%= ENV['BS4CLEAN_DATABASE_PASSWORD'] %>
