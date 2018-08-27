@@ -1,6 +1,8 @@
 # Ruby on Rails Inventory requests Application
 
 This is the application which allows users to create an “InventoryRequest”s to employer. For example, if I want green tea, I created a request "please buy green tea" and a employer (company, HR, someone) will buy it.
+Admin: test@example.com
+Pass: 123456
 
 by Mark Vorotyntsev.
 
@@ -20,6 +22,12 @@ Next, migrate the database:
 
 ```
 $ rails db:migrate
+```
+
+Then seed database:
+
+```
+$ rails db:seed
 ```
 Run the app server:
 
