@@ -1,0 +1,45 @@
+<%= form_for :inventory, url: inventories_path do |form| %>
+
+<% if @inventory.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@inventory.errors.count, "error") %> prohibited
+      this request from being saved:
+    </h2>
+    <ul>
+      <% @inventory.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+
+    <p>
+      <%= form.label :user_id %><br>
+      <%= form.text_field :user_id , :readonly => true, :value => current_user.email%>
+
+    </p>
+
+
+    <p>
+      <%= form.label "Status of request" %><br>
+
+      <% if current_user.admin? %>
+         <%= form.select :reqstatus, ['new', 'in progress', 'approved'], :value => "new" %>
+      <% else %>
+       <%= form.select :reqstatus, ['new'], :value => "new" %>
+      <% end %>
+
+    </p>
+
+    <p>
+      <%= form.label "Message" %><br>
+      <%= form.text_area :content, :style => "width:50%",  :rows => "8" %>
+    </p>
+
+    <p>
+      <%= form.submit "Save request"%>
+    </p>
+  <% end %>

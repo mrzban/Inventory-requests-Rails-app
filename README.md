@@ -1,24 +1,28 @@
-# README
+# Ruby on Rails Inventory requests Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the application which allows users to create an “InventoryRequest”s to employer. For example, if I want green tea, I created a request "please buy green tea" and a employer (company, HR, someone) will buy it.
 
-Things you may want to cover:
+by Mark Vorotyntsev.
 
-* Ruby version
+## License
 
-* System dependencies
+All source code in the is available jointly under the MIT License and the Beerware License.
 
-* Configuration
+## Getting started
 
-* Database creation
+To get started with the app, clone the repo and then install the needed gems:
 
-* Database initialization
+```
+$ bundle install
+```
 
-* How to run the test suite
+Next, migrate the database:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+$ rails db:migrate
+```
+Run the app server:
 
-* Deployment instructions
-
-* ...
+```
+$ rails s
+```

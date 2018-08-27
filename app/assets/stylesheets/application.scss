@@ -18,4 +18,24 @@
 @import "bootadmin";
 @import "font-awesome";
 
+tr th{
+    font-weight: bold;
+    padding-left: 10px;
+    padding-top: 20px;
+    
+}
 
+tr td{
+    padding-left: 10px;
+    
+}
+
+.hide {
+    display: none !important;
+}
+
+.table-green,
+.table-green > th,
+.table-green > td {
+  background-color: #4caf50 !important;
+}

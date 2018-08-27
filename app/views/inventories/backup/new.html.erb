@@ -1,0 +1,19 @@
+
+<%= form_for :inventory, url: inventories_path do |form| %>
+  <p>
+    <%= form.label :user_id %><br>
+    <%= form.text_field :user_id , :readonly => true, :value => current_user.email%>
+
+  </p>
+
+<%= form.text_field :reqstatus , :readonly => true, :value => "new"%>
+
+  <p>
+    <%= form.label :content %><br>
+    <%= form.text_area :content %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

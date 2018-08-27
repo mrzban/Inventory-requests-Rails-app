@@ -1,0 +1,39 @@
+<h1>Inventory requests</h1>
+
+<a href="<%= new_inventory_path %>" class="btn btn-primary role="button">New request</a>
+
+
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>Creator</th>
+    <th >Request</th>
+    <th>Status</th>
+    <th colspan="3"></th>
+  </tr>
+
+  <% @inventories.each do |inventory| %>
+    <tr >
+      <td><%= inventory.user_id %></td>
+      <td><%= inventory.content %></td>
+
+
+      <% if inventory.reqstatus == "approved" %>
+          <td class="table-green"><%= inventory.reqstatus %></td>
+      <% elsif inventory.reqstatus == "in progress" %>
+          <td class="table-danger"><%= inventory.reqstatus %></td>
+      <% else %>
+          <td class="table-info"><%= inventory.reqstatus %></td>
+      <% end %>
+
+
+
+      <td><%= link_to 'Show', inventory_path(inventory) %></td>
+      <% if current_user.admin? %>
+        <td><%= link_to 'Edit', edit_inventory_path(inventory) %></td>
+        <td><%= link_to 'Destroy', inventory_path(inventory),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>

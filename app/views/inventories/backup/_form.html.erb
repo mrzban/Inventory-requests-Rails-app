@@ -1,0 +1,35 @@
+<%= form_for :inventory, url: inventories_path do |form| %>
+
+  <% if @inventory.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@inventory.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @inventory.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+    <p>
+      <%= form.label :user_id %><br>
+      <%= form.text_field :user_id , :readonly => true, :value => current_user.email%>
+
+    </p>
+
+  <%= form.text_field :reqstatus , :readonly => true, :value => "new"%>
+
+    <p>
+      <%= form.label :content %><br>
+      <%= form.text_area :content %>
+    </p>
+
+    <p>
+      <%= form.submit %>
+    </p>
+  <% end %>
